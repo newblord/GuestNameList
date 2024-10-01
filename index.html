@@ -36,15 +36,15 @@
     <script>
         var searchbar = document.getElementById("searchbar");
         var tableBody = document.getElementById("table-body");
+        var originalData = '';
 
         fetch('guestName.json')
             .then(function (response) {
                 return response.json();
             })
             .then(function (guestNames) {
-                let output = '';
                 for (let guestName of guestNames) {
-                    output += `
+                    originalData += `
                         <tr scope="row">
                             <td class="text-center">${guestName.tableNumber.trim()}</td>
                             <td class="text-center">${guestName.firstName.trim()} ${guestName.lastName.trim()}</td>
@@ -52,11 +52,9 @@
                     `;
                 }
 
-                tableBody.innerHTML = output;
+                tableBody.innerHTML = originalData;
             });
 
-
-        var originalData = tableBody.innerHTML;
         function search() {
             tableBody.innerHTML = originalData;
             let rows = tableBody.children;
