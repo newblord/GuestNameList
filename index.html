@@ -15,21 +15,23 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
 
-    <form class="ms-3 mt-3 w-50">
-        <input type="text" id="searchbar" class="form-control shadow-sm" placeholder="Search Guest Name Here" />
-    </form>
+    <div class="container">
+        <form class="ms-3 mt-3 w-50">
+            <input type="text" id="searchbar" class="form-control shadow-sm" placeholder="Search Guest Name Here" />
+        </form>
 
-    <table id="table" class="table table-striped table-bordered table-dark w-50 ms-3 mt-1">
-        <thead>
-            <tr>
-                <td>Table Number</td>
-                <td>Guest Name</td>
-            </tr>
-        </thead>
-        <tbody id="table-body">
+        <table id="table" class="table table-striped table-bordered table-dark ms-2 me-2 mt-1">
+            <thead>
+                <tr>
+                    <td scope="col" style="width: 35%; text-align: center;">Table Number</td>
+                    <td scope="col" style="text-align: center;">Guest Name</td>
+                </tr>
+            </thead>
+            <tbody id="table-body">
 
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    </div>
 
     <script>
         var searchbar = document.getElementById("searchbar");
@@ -43,12 +45,14 @@
                 let output = '';
                 for (let guestName of guestNames) {
                     output += `
-                        <tr>
+                        <tr scope="row">
                             <td>${guestName.tableNumber.trim()}</td>
                             <td>${guestName.firstName.trim()} ${guestName.lastName.trim()}</td>
                         </tr>
                     `;
                 }
+
+                tableBody.innerHTML = output;
             });
 
 
