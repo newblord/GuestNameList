@@ -23,8 +23,8 @@
         <table id="table" class="table table-striped table-bordered table-dark ms-2 me-2 mt-1">
             <thead>
                 <tr>
-                    <td scope="col" style="width: 35%; text-align: center;">Table Number</td>
-                    <td scope="col" style="text-align: center;">Guest Name</td>
+                    <td scope="col" class="text-center" style="width: 35%">Table Number</td>
+                    <td scope="col" class="text-center">Guest Name</td>
                 </tr>
             </thead>
             <tbody id="table-body">
@@ -46,8 +46,8 @@
                 for (let guestName of guestNames) {
                     output += `
                         <tr scope="row">
-                            <td>${guestName.tableNumber.trim()}</td>
-                            <td>${guestName.firstName.trim()} ${guestName.lastName.trim()}</td>
+                            <td class="text-center">${guestName.tableNumber.trim()}</td>
+                            <td class="text-center">${guestName.firstName.trim()} ${guestName.lastName.trim()}</td>
                         </tr>
                     `;
                 }
